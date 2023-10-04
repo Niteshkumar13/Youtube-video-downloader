@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import './style.css';
-import os from 'os';
+
 
 export default function Front() {
   const [data,setdata] = useState([]);
@@ -32,7 +32,7 @@ if(event.target.value === null){
    const options = {
     method: 'GET',
     headers: {
-      'X-RapidAPI-Key': os.envoirement("API_URL"),
+      'X-RapidAPI-Key': process.env.API_URL,
         'X-RapidAPI-Host': 'ytstream-download-youtube-videos.p.rapidapi.com'
     }
 };
