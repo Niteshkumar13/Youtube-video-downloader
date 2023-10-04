@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import './style.css';
-
+import os from 'os';
 
 export default function Front() {
   const [data,setdata] = useState([]);
