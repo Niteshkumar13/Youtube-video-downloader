@@ -18,8 +18,7 @@ if(event.target.value === null){
     }
     else{
    if(urls.substring(0,16) ==="https://youtu.be"|| urls.substring(0,27) === "https://youtube.com/shorts/"){
-   //https://youtu.be/UJDnWl1QXec?si=6JEal6UBf0agIBLm
-   //https://youtube.com/shorts/5AJHy0zZmZY?si=0IYO9Uun-0CzOZh2
+
   let url=""
    if (urls.substring(0,16) ==="https://youtu.be"){
      url = 'https://ytstream-download-youtube-videos.p.rapidapi.com/dl?id='+urls.split("be/")[1].split("?")[0]; 
