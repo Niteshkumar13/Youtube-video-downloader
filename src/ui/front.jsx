@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import './style.css';
-import {api_value} = process.env;
+import {api_value} from process.env;
 
 export default function Front() {
   const [data,setdata] = useState([]);
