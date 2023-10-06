@@ -31,7 +31,7 @@ if(event.target.value === null){
    const options = {
     method: 'GET',
     headers: {
-      'X-RapidAPI-Key':process.env.API_VALUE,
+      'X-RapidAPI-Key':process.env.API_URL,
         'X-RapidAPI-Host': 'ytstream-download-youtube-videos.p.rapidapi.com'
     }
 };
