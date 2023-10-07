@@ -59,7 +59,7 @@ if(event.target.value === null){
     <div className='container'>
         <h1>Youtube Video downloader</h1>
       <div className='search-bar'>
-      <input type='text' className='input' onChange={getvalue} />
+      <input type='text' className='input' onChange={getvalue} placeholder="paste the link" />
       <button className='search' onClick={callApi}>
       <i class="glyphicon glyphicon-search"></i>
       </button>
