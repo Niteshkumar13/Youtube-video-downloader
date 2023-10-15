@@ -1,11 +1,12 @@
-
 import './App.css';
 import Front from './ui/front';
 import avtar from './Avatar-Profile-PNG-Photos.png';
-
+import { inject } from '@vercel/analytics';
 function App() {
   return (
     <>
+    
+<inject/>
     <div className='body'>
  
     <Front/>
