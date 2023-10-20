@@ -32,7 +32,7 @@ if(event.target.value === null){
    const options = {
     method: 'GET',
     headers: {
-      'X-RapidAPI-Key':VERCEL_ENV.SECRET_CODE,
+      'X-RapidAPI-Key':process.env.SECRET_CODE,
         'X-RapidAPI-Host': 'ytstream-download-youtube-videos.p.rapidapi.com'
     }
 };
