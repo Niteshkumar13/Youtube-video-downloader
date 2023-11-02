@@ -1,13 +1,13 @@
 import React,{useState} from 'react'
 import './style.css';
 
-
 export default function Front() {
+ 
   const [data,setdata] = useState([]);
-  
   const [urls,surl] = useState(null);
   const [content,scontent] = useState(false);
   function getvalue(event){
+    
 if(event.target.value === null){
   alert("something went wrong")
 }
@@ -18,29 +18,31 @@ if(event.target.value === null){
       alert("please fill proper link ")
     }
     else{
+      
    if(urls.substring(0,16) ==="https://youtu.be"|| urls.substring(0,27) === "https://youtube.com/shorts/"){
-
+   //https://youtu.be/UJDnWl1QXec?si=6JEal6UBf0agIBLm
+   //https://youtube.com/shorts/5AJHy0zZmZY?si=0IYO9Uun-0CzOZh2
   let url=""
    if (urls.substring(0,16) ==="https://youtu.be"){
      url = 'https://ytstream-download-youtube-videos.p.rapidapi.com/dl?id='+urls.split("be/")[1].split("?")[0]; 
-   
+    //url = 'https://ytstream-download-youtube-videos.p.rapidapi.com/dl?id='+'ICo9cv8O3Ec'; 
    }
    else if(urls.substring(0,27) === "https://youtube.com/shorts/"){
   url = 'https://ytstream-download-youtube-videos.p.rapidapi.com/dl?id='+urls.split("/shorts/")[1].split("?")[0]; 
     
-   }
+   }   
    const options = {
     method: 'GET',
-    headers: {
-      'X-RapidAPI-Key':'3b215790a3mshb91dab3bb8f30bap13aef7jsn3032f64824ed',
-        'X-RapidAPI-Host': 'ytstream-download-youtube-videos.p.rapidapi.com'
-    }
+headers: {
+  'X-RapidAPI-Key': process.env.REACT_APP_KEY,
+  'X-RapidAPI-Host': 'ytstream-download-youtube-videos.p.rapidapi.com'
+}
 };
     
     try {
       fetch(url, options)
       .then(response=>response.json())
-      .then(data=>{setdata(data);scontent(true)})
+      .then(data=>{console.log(data);setdata(data);scontent(true)})
       .catch(error=>{
         alert("Something went wrong from server side or the URL is invalid. Try again")
         scontent(false)}
@@ -53,13 +55,14 @@ if(event.target.value === null){
   else{
     alert("enter valid link")
   }
-  }}
+  }
+  }
   return (
     <>
     <div className='container'>
         <h1>Youtube Video downloader</h1>
       <div className='search-bar'>
-      <input type='text' className='input' onChange={getvalue} placeholder="paste the link" />
+      <input type='text' className='input' onChange={getvalue} />
       <button className='search' onClick={callApi}>
       <i class="glyphicon glyphicon-search"></i>
       </button>
