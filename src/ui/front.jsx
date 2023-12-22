@@ -13,6 +13,7 @@ if(event.target.value === null){
 }
  surl(event.target.value)
   }
+
   function callApi() {
     if (urls === null){
       alert("please fill proper link ")
@@ -56,12 +57,18 @@ headers: {
   }
   }
   }
+ const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      callApi();
+    }
+  };
   return (
     <>
     <div className='container'>
         <h1>Youtube Video downloader</h1>
       <div className='search-bar'>
-      <input type='text' className='input' onChange={getvalue} />
+      <input type='text' className='input' onChange={getvalue} onKeyDown={handleKeyDown} />
       <button className='search' onClick={callApi}>
       <i class="glyphicon glyphicon-search"></i>
       </button>
