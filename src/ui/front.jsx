@@ -42,7 +42,7 @@ headers: {
     try {
       fetch(url, options)
       .then(response=>response.json())
-      .then(data=>{console.log(data);setdata(data);scontent(true)})
+      .then(data=>{setdata(data);scontent(true)})
       .catch(error=>{
         alert("Something went wrong from server side or the URL is invalid. Try again")
         scontent(false)}
